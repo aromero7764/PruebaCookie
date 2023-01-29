@@ -1,4 +1,25 @@
+function getIP() {
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("ip").innerHTML = "Dirección IP: " + data.ip;
+      });
+  }
+  
+  function getNavigator() {
+    document.getElementById("browser").innerHTML = 
+      "Navegador: " + navigator.userAgent;
+  }
+  
+  window.onload = function() {
+    getIP();
+    getNavigator();
+  };
+
+
 window.onload = function() {
+    getIP();
+    getNavigator();
     // Verifica si la cookie existe
     var color = getCookie("color");
     if (color == "") {
@@ -34,3 +55,5 @@ window.onload = function() {
     }
     return "";
   }
+
+  
